@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="2" guice-stage="DEVELOPMENT" verbose="4" name="Failed suite [Suite]" parallel="classes">
+  <test name="Test">
+    <classes>
+      <class name="testCases.TC001_DeleteLead"/>
+      <class name="testCases.TC001_EditLead"/>
+      <class name="testCases.TC001_DuplicateLead"/>
+      <class name="testCases.TC001_CreateLead"/>
+      <class name="testCases.TC001_MergeLead"/>
+    </classes>
+  </test> <!-- Test -->
+  <test name="Test(failed)" parallel="classes">
+    <classes>
+      <class name="testCases.TC001_MergeLead">
+        <methods>
+          <include name="beforeMethod"/>
+          <include name="DuplicateLead" invocation-numbers="0"/>
+          <include name="setValues"/>
+        </methods>
+      </class> <!-- testCases.TC001_MergeLead -->
+      <class name="testCases.TC001_EditLead">
+        <methods>
+          <include name="afterMethod"/>
+          <include name="setValues"/>
+          <include name="beforeMethod"/>
+          <include name="createLead" invocation-numbers="1"/>
+        </methods>
+      </class> <!-- testCases.TC001_EditLead -->
+      <class name="testCases.TC001_CreateLead">
+        <methods>
+          <include name="afterMethod"/>
+          <include name="beforeMethod"/>
+          <include name="setValues"/>
+          <include name="createLead" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- testCases.TC001_CreateLead -->
+      <class name="testCases.TC001_DeleteLead">
+        <methods>
+          <include name="beforeTest"/>
+          <include name="afterMethod"/>
+          <include name="beforeSuite"/>
+          <include name="beforeMethod"/>
+          <include name="setValues"/>
+        </methods>
+      </class> <!-- testCases.TC001_DeleteLead -->
+      <class name="testCases.TC001_DuplicateLead">
+        <methods>
+          <include name="afterMethod"/>
+          <include name="beforeMethod"/>
+          <include name="setValues"/>
+        </methods>
+      </class> <!-- testCases.TC001_DuplicateLead -->
+    </classes>
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [Suite] -->
